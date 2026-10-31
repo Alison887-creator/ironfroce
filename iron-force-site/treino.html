@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO básico -->
+  <title>Meu Treino | Monte seu treino e sua dieta - Iron Force Academia</title>
+  <meta name="description" content="Monte seu treino com sugestões de exercícios para cada músculo, calcule sua dieta e descubra as calorias da sua refeição por foto. Grátis na Iron Force.">
+  <meta name="theme-color" content="#0a0a0a">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Meu Treino | Iron Force Academia">
+  <meta property="og:description" content="Monte seu treino, sua dieta e conte as calorias da comida por foto.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=1200&q=70&auto=format&fit=crop">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Reaproveita a identidade visual do site e adiciona os estilos da área do aluno -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="treino.css">
+</head>
+<body class="pagina-treino">
+
+  <div class="progresso" id="progresso" aria-hidden="true"></div>
+  <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ================= HEADER ================= -->
+  <header class="header rolado" id="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo" aria-label="Iron Force - página inicial">
+        <span class="logo__icone" aria-hidden="true">IF</span>
+        <span class="logo__texto">IRON<span>FORCE</span></span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Menu principal">
+        <ul class="nav__lista">
+          <li><a href="index.html#inicio" class="nav__link">Início</a></li>
+          <li><a href="index.html#modalidades" class="nav__link">Modalidades</a></li>
+          <li><a href="index.html#planos" class="nav__link">Planos</a></li>
+          <li><a href="index.html#personal" class="nav__link">Personal</a></li>
+          <li><a href="index.html#horarios" class="nav__link">Horários</a></li>
+          <li><a href="treino.html" class="nav__link nav__link--destaque ativo" aria-current="page">Meu Treino</a></li>
+          <li><a href="index.html#contato" class="nav__link">Contato</a></li>
+        </ul>
+        <a href="index.html#matricula" class="btn btn--primario nav__cta">Matricule-se</a>
+      </nav>
+
+      <button class="hamburguer" id="hamburguer" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="conteudo">
+
+    <!-- ================= TOPO DA PÁGINA ================= -->
+    <section class="aluno-hero">
+      <div class="container">
+        <p class="secao__tag">Área do aluno</p>
+        <h1 class="aluno-hero__titulo">Monte seu <span>treino</span>, sua <span>dieta</span> e conte <span>calorias</span></h1>
+        <p class="aluno-hero__sub">Tudo fica salvo neste aparelho. Leve para a academia e mostre ao seu professor.</p>
+      </div>
+    </section>
+
+    <!-- ================= ABAS PRINCIPAIS ================= -->
+    <div class="abas-aluno" id="abas-aluno">
+      <div class="container">
+        <div class="abas-aluno__lista" role="tablist" aria-label="Ferramentas da área do aluno">
+          <button class="abas-aluno__btn" role="tab" id="aba-treino" aria-controls="painel-treino" aria-selected="true" data-painel="treino">
+            <span aria-hidden="true" data-icone="haltere"></span> Meu treino
+          </button>
+          <button class="abas-aluno__btn" role="tab" id="aba-dieta" aria-controls="painel-dieta" aria-selected="false" data-painel="dieta" tabindex="-1">
+            <span aria-hidden="true" data-icone="prato"></span> Minha dieta
+          </button>
+          <button class="abas-aluno__btn" role="tab" id="aba-foto" aria-controls="painel-foto" aria-selected="false" data-painel="foto" tabindex="-1">
+            <span aria-hidden="true" data-icone="camera"></span> Calorias por foto
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================================
+         PAINEL 1 — TREINO
+         ========================================================= -->
+    <section class="painel" id="painel-treino" role="tabpanel" aria-labelledby="aba-treino">
+      <div class="container painel__grid">
+
+        <div class="painel__coluna">
+          <!-- Gerador automático -->
+          <div class="bloco">
+            <h2 class="bloco__titulo"><span aria-hidden="true" data-icone="raio"></span> Gerar treino automático</h2>
+            <p class="bloco__texto">Responda 3 perguntas e montamos uma divisão completa para você. Depois é só ajustar.</p>
+            <form class="gerador" id="form-gerador">
+              <div class="campo">
+                <label for="g-objetivo">Objetivo</label>
+                <select id="g-objetivo" name="objetivo"></select>
+              </div>
+              <div class="campo">
+                <label for="g-dias">Dias por semana</label>
+                <select id="g-dias" name="dias">
+                  <option value="2">2 dias</option>
+                  <option value="3" selected>3 dias</option>
+                  <option value="4">4 dias</option>
+                  <option value="5">5 dias</option>
+                  <option value="6">6 dias</option>
+                </select>
+              </div>
+              <div class="campo">
+                <label for="g-nivel">Nível</label>
+                <select id="g-nivel" name="nivel">
+                  <option value="1">Iniciante</option>
+                  <option value="2" selected>Intermediário</option>
+                  <option value="3">Avançado</option>
+                </select>
+              </div>
+              <button type="submit" class="btn btn--primario">Gerar treino</button>
+            </form>
+          </div>
+
+          <!-- Sugestões por músculo -->
+          <div class="bloco">
+            <h2 class="bloco__titulo"><span aria-hidden="true" data-icone="alvo"></span> Sugestões por músculo</h2>
+            <p class="bloco__texto">Escolha o músculo e adicione os exercícios ao dia de treino que quiser.</p>
+            <div class="musculos" id="lista-musculos" role="group" aria-label="Grupos musculares"></div>
+            <div class="exercicios" id="lista-exercicios" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <!-- Treino montado -->
+        <div class="painel__coluna painel__coluna--fixa">
+          <div class="bloco bloco--destaque" id="area-meu-treino">
+            <div class="bloco__topo">
+              <h2 class="bloco__titulo"><span aria-hidden="true" data-icone="lista"></span> Meu treino</h2>
+              <div class="bloco__acoes">
+                <button class="btn-mini" id="btn-novo-dia" type="button">+ Dia</button>
+                <button class="btn-mini" id="btn-imprimir" type="button">Imprimir</button>
+                <button class="btn-mini btn-mini--perigo" id="btn-limpar-treino" type="button">Limpar</button>
+              </div>
+            </div>
+            <p class="bloco__info" id="treino-info"></p>
+            <div class="dias" id="lista-dias"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         PAINEL 2 — DIETA
+         ========================================================= -->
+    <section class="painel" id="painel-dieta" role="tabpanel" aria-labelledby="aba-dieta" hidden>
+      <div class="container painel__grid">
+
+        <div class="painel__coluna">
+          <!-- Calculadora -->
+          <div class="bloco">
+            <h2 class="bloco__titulo"><span aria-hidden="true" data-icone="calculadora"></span> Calcule sua meta</h2>
+            <p class="bloco__texto">Usamos a fórmula de Mifflin-St Jeor para estimar quantas calorias você gasta por dia.</p>
+            <form class="calc" id="form-calc" novalidate>
+              <div class="calc__linha">
+                <fieldset class="campo">
+                  <legend>Sexo</legend>
+                  <div class="opcoes">
+                    <label class="opcao"><input type="radio" name="sexo" value="m" checked><span>Masculino</span></label>
+                    <label class="opcao"><input type="radio" name="sexo" value="f"><span>Feminino</span></label>
+                  </div>
+                </fieldset>
+              </div>
+              <div class="calc__linha calc__linha--3">
+                <div class="campo">
+                  <label for="d-idade">Idade</label>
+                  <input type="number" id="d-idade" name="idade" min="14" max="100" value="28" inputmode="numeric" required>
+                </div>
+                <div class="campo">
+                  <label for="d-peso">Peso (kg)</label>
+                  <input type="number" id="d-peso" name="peso" min="30" max="300" step="0.1" value="75" inputmode="decimal" required>
+                </div>
+                <div class="campo">
+                  <label for="d-altura">Altura (cm)</label>
+                  <input type="number" id="d-altura" name="altura" min="120" max="230" value="175" inputmode="numeric" required>
+                </div>
+              </div>
+              <div class="calc__linha calc__linha--2">
+                <div class="campo">
+                  <label for="d-atividade">Nível de atividade</label>
+                  <select id="d-atividade" name="atividade">
+                    <option value="1.2">Sedentário</option>
+                    <option value="1.375">Leve (1-2 treinos/sem)</option>
+                    <option value="1.55" selected>Moderado (3-5 treinos/sem)</option>
+                    <option value="1.725">Intenso (6-7 treinos/sem)</option>
+                    <option value="1.9">Atleta (2x por dia)</option>
+                  </select>
+                </div>
+                <div class="campo">
+                  <label for="d-objetivo">Objetivo</label>
+                  <select id="d-objetivo" name="objetivo">
+                    <option value="emagrecer">Emagrecer</option>
+                    <option value="manter">Manter o peso</option>
+                    <option value="massa" selected>Ganhar massa</option>
+                  </select>
+                </div>
+              </div>
+              <small class="campo__erro" id="calc-erro" aria-live="polite"></small>
+              <button type="submit" class="btn btn--primario">Calcular</button>
+            </form>
+
+            <div class="resultado" id="resultado-calc" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <!-- Cardápio -->
+        <div class="painel__coluna">
+          <div class="bloco bloco--destaque">
+            <div class="bloco__topo">
+              <h2 class="bloco__titulo"><span aria-hidden="true" data-icone="prato"></span> Meu cardápio</h2>
+              <div class="bloco__acoes">
+                <button class="btn-mini" id="btn-gerar-cardapio" type="button">Sugerir cardápio</button>
+                <button class="btn-mini btn-mini--perigo" id="btn-limpar-dieta" type="button">Limpar</button>
+              </div>
+            </div>
+
+            <!-- Resumo do dia -->
+            <div class="resumo" id="resumo-dieta"></div>
+
+            <!-- Adicionar alimento -->
+            <form class="adicionar" id="form-alimento" novalidate>
+              <div class="campo">
+                <label for="al-refeicao">Refeição</label>
+                <select id="al-refeicao" name="refeicao"></select>
+              </div>
+              <div class="campo adicionar__busca">
+                <label for="al-nome">Alimento</label>
+                <input type="text" id="al-nome" name="alimento" list="lista-alimentos" placeholder="Digite: arroz, frango, banana..." autocomplete="off">
+              </div>
+              <div class="campo adicionar__gramas">
+                <label for="al-gramas">Gramas</label>
+                <input type="number" id="al-gramas" name="gramas" min="1" max="2000" placeholder="100" inputmode="numeric">
+              </div>
+              <button type="submit" class="btn btn--primario">Adicionar</button>
+              <small class="campo__erro adicionar__erro" id="alimento-erro" aria-live="polite"></small>
+            </form>
+
+            <div class="refeicoes" id="lista-refeicoes"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================
+         PAINEL 3 — CALORIAS POR FOTO
+         ========================================================= -->
+    <section class="painel" id="painel-foto" role="tabpanel" aria-labelledby="aba-foto" hidden>
+      <div class="container painel__grid">
+
+        <div class="painel__coluna">
+          <div class="bloco">
+            <h2 class="bloco__titulo"><span aria-hidden="true" data-icone="camera"></span> Fotografe sua refeição</h2>
+            <p class="bloco__texto">Nossa inteligência artificial tenta reconhecer o alimento direto no seu aparelho — a foto não é enviada para nenhum servidor.</p>
+
+            <div class="upload" id="area-upload">
+              <img class="upload__preview" id="foto-preview" alt="Foto da refeição enviada" hidden>
+              <div class="upload__vazio" id="upload-vazio">
+                <span class="upload__icone" aria-hidden="true" data-icone="camera"></span>
+                <p><strong>Arraste uma foto aqui</strong><br>ou use os botões abaixo</p>
+              </div>
+              <div class="upload__analisando" id="foto-analisando" hidden>
+                <span class="btn__spinner" aria-hidden="true"></span>
+                <span id="foto-status">Analisando a foto...</span>
+              </div>
+            </div>
+
+            <div class="upload__botoes">
+              <label class="btn btn--primario">
+                <input type="file" accept="image/*" capture="environment" id="foto-camera" class="sr-only">
+                <span aria-hidden="true" data-icone="camera"></span> Tirar foto
+              </label>
+              <label class="btn btn--escuro">
+                <input type="file" accept="image/*" id="foto-galeria" class="sr-only">
+                <span aria-hidden="true" data-icone="imagem"></span> Escolher da galeria
+              </label>
+            </div>
+
+            <div class="deteccao" id="resultado-ia" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div class="painel__coluna">
+          <div class="bloco bloco--destaque">
+            <h2 class="bloco__titulo"><span aria-hidden="true" data-icone="recibo"></span> Seu prato</h2>
+            <p class="bloco__texto">Confira o que a IA encontrou, ajuste as gramas e inclua o que faltar (ex.: arroz e feijão).</p>
+
+            <form class="adicionar adicionar--compacto" id="form-prato" novalidate>
+              <div class="campo adicionar__busca">
+                <label for="pr-nome">Adicionar alimento</label>
+                <input type="text" id="pr-nome" list="lista-alimentos" placeholder="Buscar alimento..." autocomplete="off">
+              </div>
+              <button type="submit" class="btn btn--escuro">+ Incluir</button>
+              <small class="campo__erro adicionar__erro" id="prato-erro" aria-live="polite"></small>
+            </form>
+
+            <ul class="prato" id="lista-prato"></ul>
+            <div class="prato__total" id="prato-total"></div>
+
+            <div class="prato__salvar">
+              <div class="campo">
+                <label for="pr-refeicao">Salvar na refeição</label>
+                <select id="pr-refeicao"></select>
+              </div>
+              <button class="btn btn--primario" id="btn-salvar-prato" type="button">Adicionar à minha dieta</button>
+            </div>
+            <p class="aviso"><strong>Atenção:</strong> Valores aproximados (Tabela TACO/USDA). A identificação por foto é uma estimativa e não substitui o acompanhamento de um nutricionista.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lista de alimentos para o autocompletar (preenchida via JS) -->
+    <datalist id="lista-alimentos"></datalist>
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer footer--simples">
+    <div class="footer__base">
+      <div class="container">
+        <p>© <span id="ano"></span> Iron Force Academia. Todos os direitos reservados. · <a href="index.html">Voltar ao site</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Aviso rápido (toast) -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <!-- Botão flutuante WhatsApp -->
+  <a class="whatsapp" href="https://wa.me/5511987654321?text=Ol%C3%A1!%20Quero%20ajuda%20com%20meu%20treino." target="_blank" rel="noopener" aria-label="Fale conosco pelo WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.8-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4a9.8 9.8 0 01-1.5-5.2C2.2 6.6 6.6 2.2 12 2.2c2.6 0 5.1 1 6.9 2.9a9.7 9.7 0 012.9 6.9c0 5.4-4.4 9.8-9.8 9.8zM20.5 3.5A11.8 11.8 0 0012 0C5.4 0 .1 5.3.1 11.9c0 2.1.6 4.1 1.6 5.9L0 24l6.3-1.7c1.7.9 3.7 1.4 5.7 1.4 6.6 0 11.9-5.3 11.9-11.9 0-3.2-1.2-6.2-3.4-8.3z"/></svg>
+  </a>
+
+  <script src="icones.js"></script>
+  <script src="dados-treino.js"></script>
+  <script src="treino.js"></script>
+  <script src="efeitos.js"></script>
+</body>
+</html>
